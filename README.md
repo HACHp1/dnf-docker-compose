@@ -14,9 +14,9 @@ sudo apt-get install docker-compose
 #centos7
 yum install docker-compose
 #其他类型/通用安装方法
-sudo wget -O /usr/local/bin/docker-compose https://pan.xxooxxoo.xyz:8444/f/cbd9947cafe14e369977/?dl=1
-sudo chmod +x /usr/local/bin/docker-compose
-sudo /usr/local/bin/docker-compose -v
+sudo wget -O /usr/bin/docker-compose https://pan.xxooxxoo.xyz:8444/f/cbd9947cafe14e369977/?dl=1
+sudo chmod +x /usr/bin/docker-compose
+sudo /usr/bin/docker-compose -v
 
 ```
 + 下载代码到服务器
