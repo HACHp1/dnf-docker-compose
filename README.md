@@ -21,7 +21,7 @@ sudo /usr/bin/docker-compose -v
 ```
 + 下载代码到服务器
 ```bash
-git clone https://github.com/scjtqs/dnf-docker-compose dnf-docker-compose
+git clone --depth=1  https://github.com/scjtqs/dnf-docker-compose dnf-docker-compose
 cd dnf-docker-compose/通用模式
 vim docker-compose.yml
 #修改里面的配置，比如 PublicIp 修改成你的公网ip
