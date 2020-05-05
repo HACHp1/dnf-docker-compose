@@ -1,3 +1,0 @@
-#!/bin/sh
-chmod +x /home/neople/run
-cd /home/neople && ./run

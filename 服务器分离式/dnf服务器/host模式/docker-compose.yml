@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+
+  dnf:
+    image: scjtqs/dnf-centos5-new
+    container_name: dnf
+    hostname: dnf
+    privileged: true
+    tty: true
+    environment:
+    - DB_HOST=192.168.50.185
+    - PublicIp=192.168.50.184
+    network_mode: "host"
+    volumes:
+    - ./home:/home
+    - ./root:/root
+

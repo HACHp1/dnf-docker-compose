@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  db:
+    container_name: dnf_db
+    image: mysql:5.7
+    restart: always
+    hostname: db
+    ports:
+    #必须使用3306端口，dnf server的配置里面有些无法修改端口
+    - 3306:3306
+#    network_mode: "host"
+    networks:
+    - cloud_net
+    volumes:
+    - ./mysql/data:/var/lib/mysql
+    - ./conf.d:/etc/mysql/conf.d
+    - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+
+
+networks:
+  cloud_net:
