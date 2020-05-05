@@ -29,3 +29,4 @@ vim docker-compose.yml
 ```
 + 启动服务 `docker-compose up -d`
 + 查看日志（可选） `docker-compose logs -f`
++ 未完成部分：集成统一登录器
