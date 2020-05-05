@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  db:
+    container_name: dnf_db
+    image: mysql:5.7
+    restart: always
+    hostname: db
+    networks:
+      - cloud_net
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./conf.d:/etc/mysql/conf.d
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
+
+  dnf:
+    image: scjtqs/dnf-centos5-new
+    container_name: dnf
+    privileged: true
+    tty: true
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=127.0.0.1
+    #输入你的公网ip，并确保已经穿透了对应的端口，建议路由器使用dmz
+      - PublicIp=192.168.50.184
+    network_mode: "host"
+    volumes:
+      - ./home:/home
+      - ./root:/root
+
+networks:
+  cloud_net:
